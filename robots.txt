@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://zilberstein.github.io/sitemap.xml

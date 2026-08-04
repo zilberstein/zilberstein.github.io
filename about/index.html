@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Noam Zilberstein">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noam Zilberstein | PhD Candidate, Cornell University</title>
+
+  <link rel="stylesheet" href=http://zilberstein.github.io/css/normalize.css>
+  <link rel="stylesheet" href=http://zilberstein.github.io/css/default.css>
+  <script src="https://kit.fontawesome.com/7511b28b59.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://zilberstein.github.io/post/atom.xml">
+  
+  <meta name="google-site-verification" content="hCQAH2tlNe6A8dAbaQHBLKYC-pCsWMBrkjmxg3D_RtU" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+  <script>
+    function toggleCitation(button) {
+      const wrapper = button.closest('.publication');
+      const container = wrapper.querySelector('.citation-container');
+      const arrow = button.querySelector('.arrow');
+
+      const isOpen = container.classList.toggle('show');
+      arrow.classList.toggle('rotate', isOpen);
+    }
+
+    function copyCitation(copyButton) {
+	const wrapper = copyButton.closest('.bibtex-box');
+	const bibtexBox = wrapper.querySelector('.bibtex-text');
+	const text = bibtexBox.innerText;
+
+	navigator.clipboard.writeText(text).then(() => {
+            showToast('Citation copied to clipboard!');
+	}).catch(() => {
+            showToast('Failed to copy citation.');
+	});
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</head>
+
+<body>
+<!--  <header>
+    <h1 class="name"><a class="unstyled-link" href="http://zilberstein.github.io">Noam Zilberstein</a></h1>
+    <nav>
+      <a class="unstyled-link nav-item" href="http://zilberstein.github.io/outcome">Outcome Logic</a>
+      <a class="unstyled-link nav-item" href="#publications">Publications</a>
+      <a class="unstyled-link nav-item" href="/#posts">Posts</a>
+      <a class="unstyled-link nav-item" href="http://zilberstein.github.io/files/cv.pdf">CV</a>
+    </nav>-->
+  </header>
+  <section class="section">
+    <div class="container">
+      
+<!-- Contact -->
+<div id="contact">
+
+  <div class="portrait-title">
+
+    <h1>Noam Zilberstein</h1>
+    <h3>Assistant Professor</h3>
+
+    <h3 class="affiliation">
+      <a href="https://www.stevens.edu/school-engineering-science/departments/computer-science" target="_blank" itemprop="url" rel="noopener">
+	<span itemprop="name">The Stevens Institute of Technology</span><br />
+	School of Computing
+      </a>
+    </h3>
+
+    <div class="contact-links">
+      
+
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="mailto:nzilbers@stevens.edu"
+   target="_blank"
+   rel="noopener">
+  <i class="fa fa-envelope contact-link-item big-icon"></i>
+</a>
+
+
+      
+      
+
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="&#x2F;&#x2F;github.com&#x2F;zilberstein"
+   target="_blank"
+   rel="noopener">
+  <i class="fab fa-github contact-link-item big-icon"></i>
+</a>
+
+
+      
+
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="&#x2F;&#x2F;scholar.google.com&#x2F;citations?user=rrC4LisAAAAJ"
+   target="_blank"
+   rel="noopener">
+  <i class="ai ai-google-scholar contact-link-item big-icon"></i>
+</a>
+
+
+      
+
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="&#x2F;&#x2F;dblp.org&#x2F;pid&#x2F;271&#x2F;4829.html"
+   target="_blank"
+   rel="noopener">
+  <i class="ai ai-dblp contact-link-item big-icon"></i>
+</a>
+
+
+      
+      
+
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="http:&#x2F;&#x2F;zilberstein.github.io&#x2F;files&#x2F;cv.pdf"
+   target="_blank"
+   rel="noopener">
+  <i class="ai ai-cv contact-link-item big-icon"></i>
+</a>
+
+
+    </div>
+  </div>
+
+  <div class="huge-slash"> / </div>
+  
+  <div class="portrait" style="background-image: url('http://zilberstein.github.io/img/headshot.jpg');"></div>
+
+</div>
+
+<!-- Bio -->
+<section>
+<div class="bio">
+
+<h2 id="about-me">About Me</h2>
+<p>I am an Assistant Professor of Computer Science at the Stevens Institute of Technology in Hoboken, NJ. My research centers around the semantic foundations of program logics and applications of formal methods to improve real world software quality.</p>
+<p>I recieved my PhD from Cornell University in 2026 where I was advised by <a rel="noopener nofollow noreferrer" target="_blank" href="https://alexandrasilva.org/">Alexandra Silva</a>.
+Before Cornell, I was a staff software engineer in the Facebook Programming Languages and Runtimes team, where I applied formal methods by <a rel="noopener nofollow noreferrer" target="_blank" href="https://engineering.fb.com/2021/02/05/open-source/hsthrift/">using dependently typed Haskell in production</a> and <a rel="noopener nofollow noreferrer" target="_blank" href="https://dl.acm.org/doi/10.1145/3497775.3503681">formally verifying concurrent algorithms for an OS microkernel</a>.
+My research has been recognized with the 2024 <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.sigplan.org/Awards/Other/#2024_Noam_Zilberstein__Cornell_University">ACM SIGPLAN John Vlissides Award</a> for applied software research and a distinguished paper award at POPL 2026.</p>
+<div id="notice">
+I am recruiting PhD students for the 2027-28 academic year. If you are interested in working with me, please reach out and <a href="https://www.stevens.edu/program/computer-science-doctoral-program">apply to Stevens</a>!
+</div>
+<h2 id="research">Research</h2>
+<p>The overarching goal of my research is to develop mathematical foundations for trustworthy software systems. I combine formal reasoning, automated analysis, and AI to make complex programs more reliable. My work spans semantic foundations, scalable program analysis techniques, and infrastructure for AI-assisted verification. I am currently working on the following research directions:</p>
+<ul>
+<li><em><strong>Mathematical Foundations of Program Logics:</strong></em> Foundations for reasoning about complex programs, including challenging combinations of effects such as concurrency, probability, and nondeterminism.</li>
+<li><em><strong>Next-Generation Static Analysis:</strong></em> Scalable analysis techniques enhanced by generative AI to solve targeted reasoning problems while preserving the efficiency of traditional methods.</li>
+<li><em><strong>Infrastructure for AI-Based Program Verification:</strong></em> Trusted formal libraries and verification frameworks that enable AI systems to reason about programs with mathematical rigor.</li>
+</ul>
+
+</div>
+
+<!-- News -->
+
+</section>
+
+
+<!-- Publications -->
+<section>
+
+<h2 id="publications">
+  Publications
+</h2>
+
+
+
+
+<div class="publication">
+  <div class="publication-venue">POPL&nbsp;
+    ’26
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/pcol.pdf>
+    
+    Probabilistic Concurrent Reasoning in Outcome Logic: Independence, Conditioning, and Invariants
+    
+    </a>
+    
+    </div>
+    
+    <div class="publication-award">
+      <i class="fa-solid fa-award"></i>
+      Distinguished Paper Award
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Alexandra Silva</span>, 
+    
+    
+  
+
+  <span class="publication-author">Joseph Tassarotti</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3776651">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;youtu.be&#x2F;aa6ilA40NbY?si=1qu_gmOthuFVa1i8">
+	  Talk <i class='fab fa-youtube'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@article{zilberstein2026probabilistic,
+  title        = {{Probabilistic Concurrent Reasoning in Outcome Logic: Independence, Conditioning, and Invariants}},
+  author       = {Noam Zilberstein and Alexandra Silva and Joseph Tassarotti},
+  year         = 2026,
+  month        = {Jan},
+  journal      = {Proc. ACM Program. Lang.},
+  publisher    = {Association for Computing Machinery},
+  address      = {New York, NY, USA},
+  volume       = 10,
+  number       = {POPL},
+  doi          = {10.1145&#x2F;3776651},
+  url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3776651},
+  issue_date   = {Jan 2026},
+  numpages     = 30
+}
+</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">TOPLAS&nbsp;
+    ’25
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/toplas25.pdf>
+    
+    Outcome Logic: A Unified Approach to the Metatheory of Program Logics with Branching Effects
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3743131">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@article{zilberstein2025outcome,
+	title        = {Outcome Logic: A Unified Approach to the Metatheory of Program Logics with Branching Effects},
+	author       = {Zilberstein, Noam},
+	year         = 2025,
+	month        = {Jun},
+	journal      = {ACM Trans. Program. Lang. Syst.},
+	publisher    = {Association for Computing Machinery},
+	address      = {New York, NY, USA},
+	doi          = {10.1145&#x2F;3743131},
+	issn         = {0164-0925},
+	url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3743131},
+	note         = {Just Accepted}
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">CONCUR&nbsp;
+    ’25
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/denot.pdf>
+    
+    Denotational Semantics for Probabilistic and Concurrent Programs
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Daniele Gorla</span>, 
+    
+    
+  
+
+  <span class="publication-author">Alexandra Silva</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.4230&#x2F;LIPIcs.CONCUR.2025.39">
+	  DOI <i class='ai ai-doi'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@inproceedings{zilberstein2025denotational,
+	title        = {{Denotational Semantics for Probabilistic and Concurrent Programs}},
+	author       = {Zilberstein, Noam and Gorla, Daniele and Silva, Alexandra},
+	year         = 2025,
+	booktitle    = {36th International Conference on Concurrency Theory (CONCUR 2025)},
+	publisher    = {Schloss Dagstuhl -- Leibniz-Zentrum f{&quot;u}r Informatik},
+	address      = {Dagstuhl, Germany},
+	series       = {Leibniz International Proceedings in Informatics (LIPIcs)},
+	volume       = 348,
+	pages        = {39:1--39:24},
+	doi          = {10.4230&#x2F;LIPIcs.CONCUR.2025.39},
+	isbn         = {978-3-95977-389-8},
+	issn         = {1868-8969},
+	url          = {https:&#x2F;&#x2F;drops.dagstuhl.de&#x2F;entities&#x2F;document&#x2F;10.4230&#x2F;LIPIcs.CONCUR.2025.39},
+	editor       = {Bouyer, Patricia and van de Pol, Jaco},
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">POPL&nbsp;
+    ’25
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/dol.pdf>
+    
+    A Demonic Outcome Logic for Randomized Nondeterminism
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Joseph Tassarotti</span>, 
+    
+    
+  
+
+  <span class="publication-author">Alexandra Silva</span>, 
+    
+    
+  
+
+  <span class="publication-author">Dexter Kozen</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3704855">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;youtu.be&#x2F;5AitB6fhCMI?si=mCAEdJd3fvSaaaWJ">
+	  Talk <i class='fab fa-youtube'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@article{zilberstein2025demonic,
+  title        = {A Demonic Outcome Logic for Randomized Nondeterminism},
+  author       = {Zilberstein, Noam and Kozen, Dexter and Silva, Alexandra and Tassarotti, Joseph},
+  year         = 2025,
+  month        = {Jan},
+  journal      = {Proc. ACM Program. Lang.},
+  publisher    = {Association for Computing Machinery},
+  address      = {New York, NY, USA},
+  volume       = 9,
+  number       = {POPL},
+  doi          = {10.1145&#x2F;3704855},
+  url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3704855},
+  issue_date   = {Jan 2025},
+  articleno    = 19,
+  numpages     = 30
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">OOPSLA&nbsp;
+    ’24
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/whp.pdf>
+    
+    Quantitative Weakest Hyper Pre: Unifying Correctness and Incorrectness Hyperproperties via Predicate Transformers
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Linpeng Zhang</span>, 
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Benjamin Kaminski</span>, 
+    
+    
+  
+
+  <span class="publication-author">Alexandra Silva</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3689740">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@article{zhang2024quantitative,
+	title        = {Quantitative Weakest Hyper Pre: Unifying Correctness and Incorrectness Hyperproperties via Predicate Transformers},
+	author       = {Zhang, Linpeng and Zilberstein, Noam and Kaminski, Benjamin Lucien and Silva, Alexandra},
+	year         = 2024,
+	month        = {oct},
+	journal      = {Proc. ACM Program. Lang.},
+	publisher    = {Association for Computing Machinery},
+	address      = {New York, NY, USA},
+	volume       = 8,
+	number       = {OOPSLA2},
+	doi          = {10.1145&#x2F;3689740},
+	url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3689740},
+	issue_date   = {October 2024},
+	articleno    = 300,
+	numpages     = 30,
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">OOPSLA&nbsp;
+    ’24
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/osl.pdf>
+    
+    Outcome Separation Logic: Local Reasoning for Correctness and Incorrectness with Computational Effects
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Angelina Saliling</span>, 
+    
+    
+  
+
+  <span class="publication-author">Alexandra Silva</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3649821">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;youtu.be&#x2F;FLbgBQGGoGI?si=z2VUdcSElGjR9Q3L">
+	  Talk <i class='fab fa-youtube'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@article{zilberstein2024outcome,
+	title        = {Outcome Separation Logic: Local Reasoning for Correctness and Incorrectness with Computational Effects},
+	author       = {Zilberstein, Noam and Saliling, Angelina and Silva, Alexandra},
+	year         = 2024,
+	month        = {apr},
+	journal      = {Proc. ACM Program. Lang.},
+	publisher    = {Association for Computing Machinery},
+	address      = {New York, NY, USA},
+	volume       = 8,
+	number       = {OOPSLA1},
+	doi          = {10.1145&#x2F;3649821},
+	url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3649821},
+	issue_date   = {April 2024},
+	articleno    = 104,
+	numpages     = 29,
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">OOPSLA&nbsp;
+    ’23
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/outcome.pdf>
+    
+    Outcome Logic: A Unifying Foundation for Correctness and Incorrectness Reasoning
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Derek Dreyer</span>, 
+    
+    
+  
+
+  <span class="publication-author">Alexandra Silva</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3586045">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;youtu.be&#x2F;FfrZsL-0Wjo?si=7VrcuQUWZG2yCYWe">
+	  Talk <i class='fab fa-youtube'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@article{outcome,
+  title        = {Outcome Logic: A Unifying Foundation of Correctness and Incorrectness Reasoning},
+  author       = {Zilberstein, Noam and Dreyer, Derek and Silva, Alexandra},
+  year         = 2023,
+  month        = {Apr},
+  journal      = {Proc. ACM Program. Lang.},
+  publisher    = {Association for Computing Machinery},
+  address      = {New York, NY, USA},
+  volume       = 7,
+  number       = {OOPSLA1},
+  doi          = {10.1145&#x2F;3586045},
+  url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3586045},
+  issue_date   = {April 2023},
+  articleno    = 93,
+  numpages     = 29
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">CPP&nbsp;
+    ’22
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/cpp22.pdf>
+    
+    Applying Formal Verification to Microkernel IPC at Meta
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Quentin Carbonneaux</span>, 
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>, 
+    
+    
+  
+
+  <span class="publication-author">Peter O&#x27;Hearn</span>, 
+    
+    
+  
+
+  <span class="publication-author">Christoph Klee</span>, 
+    
+    
+  
+
+  <span class="publication-author">Francesco Zappa Nardelli</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3497775.3503681">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;youtu.be&#x2F;Q1vGBUyzGF8">
+	  Talk <i class='fab fa-youtube'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@inproceedings{carbonneaux2022applying,
+  title        = {Applying Formal Verification to Microkernel IPC at Meta},
+  author       = {Carbonneaux, Quentin and Zilberstein, Noam and Klee, Christoph and O&#x27;Hearn, Peter W. and Zappa Nardelli, Francesco},
+  year         = 2022,
+  booktitle    = {Proceedings of the 11th ACM SIGPLAN International Conference on Certified Programs and Proofs},
+  location     = {Philadelphia, PA, USA},
+  publisher    = {Association for Computing Machinery},
+  address      = {New York, NY, USA},
+  series       = {CPP 2022},
+  pages        = {116–129}
+  doi          = {10.1145&#x2F;3497775.3503681},
+  isbn         = 9781450391825,
+  url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3497775.3503681},
+  numpages     = 14,
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="publication">
+  <div class="publication-venue">Haskell&nbsp;
+    ’20
+    
+  </div>
+  <div class="publication-details">
+    <div class="publication-title">
+    
+    <a href=http://zilberstein.github.io/files/pubs/haskell20.pdf>
+    
+    Eliminating Bugs with Dependent Haskell
+    
+    </a>
+    
+    </div>
+    
+    <div>
+    
+    
+  
+
+  <span class="publication-author">Noam Zilberstein</span>
+    
+    </div>
+    <div class="publication-links">
+    
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;3406088.3409020">
+	  DOI <i class='ai ai-acmdl'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;github.com&#x2F;facebookincubator&#x2F;hsthrift">
+	  Code <i class='fas fa-code'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+	<a class="unstyled-link"
+	   href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=10gSoVZ5yXY">
+	  Talk <i class='fab fa-youtube'></i>
+	</a>
+      </span>
+      
+      <span class="publication-link">
+      	<a class="unstyled-link bibtex" onclick="toggleCitation(this)">
+	  Show BibTeX&nbsp; <i class="fa-solid fa-circle-chevron-up arrow"></i>
+	</a>
+      </span>
+    </div>
+  </div>
+  
+  <div class="citation-container" id="citationContainer">
+    <div class="bibtex-box" id="bibtexText">
+      <button class="copy-btn" onclick="copyCitation(this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      <div class="bibtex-text">@inproceedings{zilberstein2020eliminating,
+  title        = {Eliminating Bugs with Dependent Haskell (Experience Report)},
+  author       = {Zilberstein, Noam},
+  year         = 2020,
+  booktitle    = {Proceedings of the 13th ACM SIGPLAN International Symposium on Haskell},
+  location     = {Virtual Event, USA},
+  publisher    = {Association for Computing Machinery},
+  address      = {New York, NY, USA},
+  series       = {Haskell 2020},
+  pages        = {9},
+  doi          = {10.1145&#x2F;3406088.3409020},
+  isbn         = 9781450380508,
+  url          = {https:&#x2F;&#x2F;doi.org&#x2F;10.1145&#x2F;3406088.3409020},
+  numpages     = 8
+}</div>
+    </div>
+  </div>
+  
+</div>
+
+</section>
+
+
+
+<div id="toast" class="toast">Copied!</div>
+
+
+
+    </div>
+  </section>
+
+<footer>
+  &copy;&nbsp;2025 Noam Zilberstein &middot; Built using <a href="https://www.getzola.org/">Zola</a>
+</footer>
+</body>
+
+</html>

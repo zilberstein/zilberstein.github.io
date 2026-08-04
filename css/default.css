@@ -1,0 +1,713 @@
+/* Contact & Bio */
+/** Contact */
+#contact {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.portrait {
+  width: 200px;
+  height: 200px;
+  /*margin: 0 auto;*/
+  border-radius: 50%;
+  background-size: cover;
+  border: 3px solid white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  margin: 15px auto;
+}
+
+/*** Portrait Title */
+.portrait-title {
+    /*margin: 1em auto;*/
+    margin: auto 0;
+}
+
+div.huge-slash {
+    margin: -.25em auto;
+    font-size: 12em;
+    color: #ffcc33;
+    display: none;
+}
+
+.portrait-title h1, .portrait-title h3, .portrait-title p {
+  margin: 0;
+}
+
+.portrait-title h1 {
+  border-top: 10px solid #ffcc33;
+}
+
+.portrait-title h3.affiliation {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+/*** Contact Links */
+.big-icon {
+  font-size: 2rem;
+}
+
+#contact a {
+  border: none;
+}
+
+.contact-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-link-item {
+  flex: auto;
+}
+
+.contact-links a {
+  color: #2360a1;
+}
+
+.contact-links a:hover {
+  color: #5693d4;
+}
+
+/** Post RSS */
+.with-feed {
+  display: flex;
+  justify-content: space-between;
+}
+
+/********** Content *********/
+section {
+    margin-top: 3em;
+    /*clear: both;*/
+}
+
+a {
+  color: rgb(0, 0, 0, 0.8);
+  text-decoration: none;
+  border-bottom: #bbb 0.1em dotted;
+}
+
+a:hover, a:focus {
+    background: #fbf3f3;
+    transition-property: background;
+    transition-duration: 0.2s;
+}
+
+/** Remove link styling */
+a.unstyled-link  {
+  border: none;
+}
+a.unstyled-link:hover, a.unstyled-link:focus {
+  background: none;
+}
+
+/********** Layout **********/
+body {
+  margin: auto;
+  width: 80%;
+  max-width: 680px;
+}
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom: 1px solid #ddd;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.name {
+  white-space: nowrap;
+}
+
+header h1 {
+  margin-top: 0;
+}
+
+header a {
+  color: #333333;
+}
+
+nav {
+  flex: 0 0;
+  height: 45px;
+  white-space: nowrap;
+  display: flex;
+  align-content: end;
+  align-items: end;
+  justify-content: space-between;
+}
+
+a.nav-item {
+  font-variant: small-caps;
+  flex: 1;
+  display: block;
+  margin:  17px 0 0 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #fff;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+a.nav-item:last-child {
+  margin-right: 0;
+}
+a.nav-item:first-child {
+  margin-left: 0;
+}
+
+a.nav-item:hover, a.nav-item:focus {
+  transition-property: border-bottom;
+  border-bottom: 2px solid #000;
+  transition-duration: 0.2s;
+  background: none;
+}
+
+nav a.active {
+  color: #A6A6AF;
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 300;
+  font-size: 80%;
+  text-align: center;
+}
+
+/********** Basic styling **********/
+
+html, button, input, select, textarea {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333333;
+  text-rendering: optimizeLegibility;
+  hyphens: auto;
+  counter-reset: sidenote-counter;
+  background-color: #fefefe;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /*font-family: "Staatliches";*/
+  margin-top: 1em;
+  margin-bottom: 0.1em;
+  hyphens: none;
+  font-weight: 500;
+}
+
+/*.portrait-title h1 {
+    font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}*/
+
+h1 { font-size: 36px; line-height: 1.25; letter-spacing: -1px; }
+h2 { font-size: 24px; line-height: 1.35; }
+h3 { font-size: 20px; line-height: 1.5; }
+h4 { font-size: 15px; line-height: 1.6;  letter-spacing: 0px; }
+h5 { font-size: 15px; line-height: 1.6;  letter-spacing: 0px; }
+
+h4, h5 {
+  font-weight: bold;
+  display: inline;
+  float: left;
+  margin-right: .5em;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+h5 {
+  font-style: italic;
+  font-weight: normal;
+}
+
+h4:after, h5:after  {
+  content: ".";
+}
+
+h4 + p, h5 + p  {
+
+}
+
+hr {
+ width:10rem;
+ border:0;
+ height:1px;
+ background:#aaa;
+ text-align:left;
+ margin-left:0
+}
+
+p {
+  margin: 15px 0px 15px 0px;
+/*  max-width: 00px;*/
+  text-align: justify;
+}
+
+ul { list-style: circle; }
+ol { list-style: decimal; }
+ol, ul {
+  margin-top: 0;
+}
+/*li { margin-bottom: 0; }*/
+
+pre {
+  font-size: 90%;
+  /*white-space: nowrap;*/
+  border-radius: 5px;
+  max-width: 600px;
+  padding-left: 1em;
+}
+
+pre {
+  background-color: #fffff8;
+  border-left: 2px solid #aaa;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-top: 1px solid #E1E1E1;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+
+figcaption {
+  margin-top: 15px;
+  font-size: 80%;
+}
+
+dt {
+  margin-top: 15px;
+}
+
+#notice {
+/*    background-color: #ffcc33;
+    border-radius: 15px;
+    padding: 15px;
+    font-weight: 500;
+    border: 3px solid #2360a1; */
+    padding-left: 15px;
+    border-left: 6px solid #ffcc33;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/** Publication styling */
+.publication {
+  margin-bottom: 0.8em;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.publication-venue {
+  font-weight: 300;
+  vertical-align: top;
+  flex: 1 100%;
+}
+
+.publication-venue .tag {
+  font-weight: 400;
+  color: #2360a1;
+  font-size: .85em;
+}
+  
+.publication-details {
+  vertical-align: top;
+  flex: 1 100%;
+  margin-left: 1em;
+  flex: 1 1;
+}
+
+.publication-title {
+  font-size: 1.1em;
+  line-height: 1.25;
+  hyphens: none;
+  margin-bottom: 0.2em;
+}
+
+.publication-award {
+  color: #2360a1;
+  font-weight: 600;
+}
+
+.publication-author {
+  font-size: 0.92em;
+  color: #111;
+}
+.publication-highlight {
+  color: black;
+}
+
+.publication-link > a {
+  font-size: 0.92em;
+  margin-right: 1em;
+}
+
+.publication-link > a:hover {
+    color: #2360a1;
+    cursor: pointer;
+}
+
+/** Post Styling */
+
+.post-tease {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.post img {
+    max-width: 90%;
+}
+
+.post h2 {
+  padding-top: 15px;
+  margin-top: 30px;
+  max-width: 600px;
+}
+
+.post-header .date {
+  margin-top: -0.3em;
+}
+.post-header {
+  margin-bottom: 2em;
+}
+
+/*** Sidenotes */
+.sidenote::before {
+    content: counter(sidenote-counter) " ";
+    font-size: 75%;
+    top: -0.5rem;
+}
+.sidenote, .marginnote {
+    float: right;
+    clear: right;
+    margin-right: -60%;
+    width: 300px;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.sidenote-number {
+    counter-increment: sidenote-counter;
+}
+.sidenote-number::after {
+    content: counter(sidenote-counter);
+    display: inline-block;
+    font-size: 75%;
+    /* Remove space before and after footnote in markdown */
+    margin-left: -0.5em;
+    top: -0.5rem;
+    left: 0.1rem;
+}
+.sidenote-number::after, .sidenote::before {
+    position: relative;
+    vertical-align: baseline;
+}
+
+label.sidenote-number {
+    display: inline;
+}
+
+input.margin-toggle {
+    display: none;
+}
+
+label.margin-toggle:not(.sidenote-number) {
+  display: inline;
+}
+
+
+@media (max-width: 1130px) {
+    label.margin-toggle:not(.sidenote-number) {
+        display: inline;
+    }
+
+    .sidenote,
+    .marginnote {
+        display: none;
+    }
+
+    .margin-toggle:checked + .sidenote,
+    .margin-toggle:checked + .marginnote {
+        display: block;
+        float: left;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        vertical-align: baseline;
+        position: relative;
+    }
+
+    label {
+        cursor: pointer;
+    }
+}
+
+label.sidenote-number {
+    display: inline;
+}
+label.margin-toggle:not(.sidenote-number) {
+    display: none;
+}
+
+/*** Footnotes */
+.footnote-definition > p {
+  display: inline;
+}
+
+.footnote-definition {
+  margin-bottom: 1em;
+}
+
+/********** Additional styling **********/
+
+div.footnotes {
+  max-width: 600px;
+  border-top: 1px dashed #AAAAAA;
+  margin-top: 40px;
+  font-size: 80%;
+}
+
+.center {
+  text-align: center;
+}
+
+.date {
+  font-weight: 300;
+  text-align: left;
+}
+
+.blurb {
+  margin-bottom: 0.8em;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.blurb > .date {
+  vertical-align: top;
+  flex: 1 100%;
+}
+
+.blurb > .description {
+  vertical-align: top;
+  margin-left: 1em;
+  flex: 1 1;
+}
+
+.blurb > .description > .title {
+    vertical-align: top;
+}
+
+.blurb p {
+  display: inline;
+}
+
+@media screen and (min-width: 585px) {
+  .name {
+    flex: 1 0;
+  }
+  a.nav-item:first-child {
+    margin-left: 2em;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .blurb > .date {
+    text-align: right;
+    flex: 0 0 65px;
+  }
+
+  .blurb { margin-bottom: 4px; }
+
+  .publication-venue {
+    margin-left: 1em;
+    text-align: right;
+    flex: 0 0 100px;
+  }
+
+  #contact {
+      flex-direction: row;
+      justify-content: right;
+      align-items: left;
+      text-align: left;
+  }
+
+  div.huge-slash {
+      display: block;
+  }
+
+  .portrait-title h1 {
+      border-top: none;
+  }
+
+
+  .portrait {
+      margin: 0;
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+  body {
+  }
+}
+
+
+
+/* BIBTEX FLOATS */
+div.publication-links {
+    position: relative
+}
+
+span.bibtex {
+    background:#444444;
+    color: #AAFFAA;
+    font-size: 65%;
+    position:absolute;
+    bottom: 25px;
+    left: 0;
+    padding: 10px;
+    font-family: Inconsolata,Monaco;
+    display: none;
+    white-space: pre-wrap;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    opacity:95%;
+    
+}
+
+a:hover span.bibtex {
+    display: block;
+    z-index: 1;
+}
+
+.publication-link > a.bibtex:active {
+    color: #a12360;
+    cursor: grabbing;
+}
+
+/* BIBTEX BOX */
+
+    .citation-container {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease;
+    }
+
+    .citation-container.show {
+      max-height: 500px; /* Adjust as needed */
+    }
+
+    .bibtex-box {
+      position: relative;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .bibtex-text {
+	margin-top: 10px;
+      white-space: pre;
+      overflow: auto;
+      font-family: Inconsolata,monospace;
+      font-size: 8pt;
+    }
+
+    .toggle-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toggle-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background-color: #218838;
+    }
+
+    /* Toast notification */
+    .toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 5px;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
