@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Noam Zilberstein">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noam Zilberstein | PhD Candidate, Cornell University</title>
+
+  <link rel="stylesheet" href=http://zilberstein.github.io/css/normalize.css>
+  <link rel="stylesheet" href=http://zilberstein.github.io/css/default.css>
+  <script src="https://kit.fontawesome.com/7511b28b59.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://zilberstein.github.io/post/atom.xml">
+  
+  <meta name="google-site-verification" content="hCQAH2tlNe6A8dAbaQHBLKYC-pCsWMBrkjmxg3D_RtU" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+  <script>
+    function toggleCitation(button) {
+      const wrapper = button.closest('.publication');
+      const container = wrapper.querySelector('.citation-container');
+      const arrow = button.querySelector('.arrow');
+
+      const isOpen = container.classList.toggle('show');
+      arrow.classList.toggle('rotate', isOpen);
+    }
+
+    function copyCitation(copyButton) {
+	const wrapper = copyButton.closest('.bibtex-box');
+	const bibtexBox = wrapper.querySelector('.bibtex-text');
+	const text = bibtexBox.innerText;
+
+	navigator.clipboard.writeText(text).then(() => {
+            showToast('Citation copied to clipboard!');
+	}).catch(() => {
+            showToast('Failed to copy citation.');
+	});
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</head>
+
+<body>
+<!--  <header>
+    <h1 class="name"><a class="unstyled-link" href="http://zilberstein.github.io">Noam Zilberstein</a></h1>
+    <nav>
+      <a class="unstyled-link nav-item" href="http://zilberstein.github.io/outcome">Outcome Logic</a>
+      <a class="unstyled-link nav-item" href="#publications">Publications</a>
+      <a class="unstyled-link nav-item" href="/#posts">Posts</a>
+      <a class="unstyled-link nav-item" href="http://zilberstein.github.io/files/cv.pdf">CV</a>
+    </nav>-->
+  </header>
+  <section class="section">
+    <div class="container">
+      
+<div class="post-header">
+
+
+
+
+<h1 class="title">
+  Outcome Logic: A Unifying Foundation for Correctness and Incorrectness Reasoning
+</h1>
+</div>
+
+<div class="post">
+
+</div>
+
+
+
+    </div>
+  </section>
+
+<footer>
+  &copy;&nbsp;2025 Noam Zilberstein &middot; Built using <a href="https://www.getzola.org/">Zola</a>
+</footer>
+</body>
+
+</html>
