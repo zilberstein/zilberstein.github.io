@@ -45,6 +45,14 @@ div.huge-slash {
     font-size: 16px;
 }
 
+.portrait-title h3.affiliation a {
+    color: inherit;
+}
+
+.portrait-title h3.affiliation a:hover {
+    color: #2360a1;
+}
+
 
 /*** Contact Links */
 .big-icon {
@@ -85,16 +93,19 @@ section {
     /*clear: both;*/
 }
 
+section + section {
+    margin-top: 0;
+}
+
 a {
-  color: rgb(0, 0, 0, 0.8);
+  color: #2360a1;
   text-decoration: none;
-  border-bottom: #bbb 0.1em dotted;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
 }
 
 a:hover, a:focus {
-    background: #fbf3f3;
-    transition-property: background;
-    transition-duration: 0.2s;
+  border-bottom-color: currentColor;
 }
 
 /** Remove link styling */
@@ -204,7 +215,7 @@ body {
   line-height: 1.6;
   color: #333333;
   text-rendering: optimizeLegibility;
-  hyphens: auto;
+  hyphens: manual;
   counter-reset: sidenote-counter;
   background-color: #fefefe;
 }
@@ -223,7 +234,16 @@ h1, h2, h3, h4, h5, h6 {
 }*/
 
 h1 { font-size: 36px; line-height: 1.25; letter-spacing: -1px; }
-h2 { font-size: 24px; line-height: 1.35; }
+h2 { font-size: 24px; line-height: 1.35; margin-top: 1.6em; font-weight: 600; color: #222; }
+
+h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 4px;
+  background: #ffcc33;
+}
 h3 { font-size: 20px; line-height: 1.5; }
 h4 { font-size: 15px; line-height: 1.6;  letter-spacing: 0px; }
 h5 { font-size: 15px; line-height: 1.6;  letter-spacing: 0px; }
@@ -262,7 +282,7 @@ hr {
 p {
   margin: 15px 0px 15px 0px;
 /*  max-width: 00px;*/
-  text-align: justify;
+  text-align: left;
 }
 
 ul { list-style: circle; }
@@ -313,23 +333,64 @@ dt {
     padding: 15px;
     font-weight: 500;
     border: 3px solid #2360a1; */
-    padding-left: 15px;
-    border-left: 6px solid #ffcc33;
-    font-weight: bold;
-    font-style: italic;
+    margin: 1.2em 0;
+    padding: 12px 16px;
+    background: #eef3f9;
+    border-left: 4px solid #2360a1;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/** Research directions */
+.research-area {
+  display: flex;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.research-area-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.research-area-text strong {
+  display: block;
+  font-weight: 600;
+  color: #222;
 }
 
 /** Publication styling */
+#publications {
+  margin-bottom: 0.6em;
+}
+
 .publication {
   margin-bottom: 0.8em;
   display: flex;
-  flex-flow: row wrap;
+  gap: 1em;
+}
+
+.publication-icon {
+  flex: 0 0 40px;
+  height: 40px;
+  margin-top: 0.1em;
+  border-radius: 50%;
+  background: #eef3f9;
+  color: #2360a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+.publication-details {
+  flex: 1;
+  min-width: 0;
 }
 
 .publication-venue {
+  font-size: 0.92em;
   font-weight: 300;
-  vertical-align: top;
-  flex: 1 100%;
 }
 
 .publication-venue .tag {
@@ -338,13 +399,6 @@ dt {
   font-size: .85em;
 }
   
-.publication-details {
-  vertical-align: top;
-  flex: 1 100%;
-  margin-left: 1em;
-  flex: 1 1;
-}
-
 .publication-title {
   font-size: 1.1em;
   line-height: 1.25;
@@ -365,9 +419,18 @@ dt {
   color: black;
 }
 
+.publication-title a {
+  color: #222;
+}
+
+.publication-title a:hover, .publication-title a:focus {
+  color: #2360a1;
+}
+
 .publication-link > a {
   font-size: 0.92em;
   margin-right: 1em;
+  color: #444;
 }
 
 .publication-link > a:hover {
@@ -551,12 +614,6 @@ div.footnotes {
 
   .blurb { margin-bottom: 4px; }
 
-  .publication-venue {
-    margin-left: 1em;
-    text-align: right;
-    flex: 0 0 100px;
-  }
-
   #contact {
       flex-direction: row;
       justify-content: right;
@@ -586,109 +643,32 @@ div.footnotes {
 
 
 
-/* BIBTEX FLOATS */
-div.publication-links {
-    position: relative
+/* Copy BibTeX button */
+.copy-bibtex {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.92em;
+  color: #444;
+  cursor: pointer;
 }
 
-span.bibtex {
-    background:#444444;
-    color: #AAFFAA;
-    font-size: 65%;
-    position:absolute;
-    bottom: 25px;
-    left: 0;
-    padding: 10px;
-    font-family: Inconsolata,Monaco;
-    display: none;
-    white-space: pre-wrap;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px;
-    opacity:95%;
-    
+.copy-bibtex:hover, .copy-bibtex:focus-visible {
+  color: #2360a1;
 }
 
-a:hover span.bibtex {
-    display: block;
-    z-index: 1;
+.bibtex-fallback {
+  margin-top: 8px;
+  padding: 12px;
+  background: #f6f8fb;
+  border: 1px solid #dde3ea;
+  border-radius: 6px;
+  font-size: 12px;
+  max-width: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
-
-.publication-link > a.bibtex:active {
-    color: #a12360;
-    cursor: grabbing;
-}
-
-/* BIBTEX BOX */
-
-    .citation-container {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.5s ease;
-    }
-
-    .citation-container.show {
-      max-height: 500px; /* Adjust as needed */
-    }
-
-    .bibtex-box {
-      position: relative;
-      padding: 15px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-
-    .bibtex-text {
-	margin-top: 10px;
-      white-space: pre;
-      overflow: auto;
-      font-family: Inconsolata,monospace;
-      font-size: 8pt;
-    }
-
-    .toggle-btn {
-      background-color: #007bff;
-      color: white;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .toggle-btn:hover {
-      background-color: #0056b3;
-    }
-
-    .arrow {
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    .arrow.rotate {
-      transform: rotate(180deg);
-    }
-
-    .copy-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      font-size: 14px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .copy-btn:hover {
-      background-color: #218838;
-    }
 
     /* Toast notification */
     .toast {
