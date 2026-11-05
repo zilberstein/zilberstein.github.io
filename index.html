@@ -39,6 +39,13 @@
       }).catch(showFallback);
     }
 
+    function toggleResearchMore(button) {
+      const text = button.parentElement.querySelector('.research-more-text');
+      text.hidden = !text.hidden;
+      button.setAttribute('aria-expanded', !text.hidden);
+      button.querySelector('span').textContent = text.hidden ? 'More' : 'Less';
+    }
+
     function showToast(message) {
       const toast = document.getElementById('toast');
       toast.textContent = message;
@@ -135,38 +142,42 @@
 
 </div>
 
+
 <!-- Bio -->
 <section>
 <div class="bio">
 <h2 id="about-me">About Me</h2>
-<p>I am an Assistant Professor of Computer Science at the Stevens Institute of Technology in Hoboken, NJ. My research centers around the semantic foundations of program logics and applications of formal methods to improve real world software quality.</p>
+<p>I am an Assistant Professor of Computer Science at the Stevens Institute of Technology in Hoboken, NJ. I develop mathematical foundations for program logics and build automated tools that bring formal verification to real-world software at scale.</p>
 <p>I received my PhD from Cornell University in 2026 where I was advised by <a rel="noopener nofollow noreferrer external" target="_blank" href="https://alexandrasilva.org/">Alexandra Silva</a>.
 Before Cornell, I was a staff software engineer in the Facebook Programming Languages and Runtimes team, where I applied formal methods by <a rel="noopener nofollow noreferrer external" target="_blank" href="https://engineering.fb.com/2021/02/05/open-source/hsthrift/">using dependently typed Haskell in production</a> and <a rel="noopener nofollow noreferrer external" target="_blank" href="https://dl.acm.org/doi/10.1145/3497775.3503681">formally verifying concurrent algorithms for an OS microkernel</a>.
 My research has been recognized with the 2024 <a rel="noopener nofollow noreferrer external" target="_blank" href="https://www.sigplan.org/Awards/Other/#2024_Noam_Zilberstein__Cornell_University">ACM SIGPLAN John Vlissides Award</a> for applied software research and a distinguished paper award at POPL 2026.</p>
 <div id="notice">
-I am recruiting PhD students for the 2027-28 academic year. If you are interested in working with me, please reach out and <a href="https://www.stevens.edu/program/computer-science-doctoral-program">apply to Stevens</a>!
+I am recruiting PhD students with a background in PL theory for the 2027-28 academic year. If you are interested in working with me, you can find more information <a href="/prospective-students/">here</a>.
 </div>
 <h2 id="research">Research</h2>
-<p>The overarching goal of my research is to develop mathematical foundations for trustworthy software systems. I combine formal reasoning, automated analysis, and AI to make complex programs more reliable. My work spans semantic foundations, scalable program analysis techniques, and infrastructure for AI-assisted verification. I am currently working on the following research directions:</p>
+<p>The goal of my research is to make complex software systems trustworthy. I develop mathematical foundations for reasoning about programs and build automated tools that apply those ideas to large codebases, with the theory and the tools each informing the other. I am currently working on the following research directions:</p>
 <div class="research-area">
   <div class="publication-icon"><i class="fa-solid fa-cubes"></i></div>
   <div class="research-area-text">
     <strong>Mathematical Foundations of Program Logics</strong>
-    Foundations for reasoning about complex programs, including challenging combinations of effects such as concurrency, probability, and nondeterminism.
+    Foundations for reasoning about complex programs, including challenging combinations of effects such as concurrency, probability, and nondeterminism. <button type="button" class="research-more" aria-expanded="false" onclick="toggleResearchMore(this)"><span>More</span> <i class="fa-solid fa-chevron-down"></i></button>
+    <p class="research-more-text" hidden>Many programs combine computational effects in ways that existing techniques cannot yet analyze. Using Outcome Logic as a foundation, I am broadly interested in developing semantic models and logical techniques for new combinations of effects, and in finding ways to generalize them. For example, Probabilistic Concurrent Outcome Logic, which received a Distinguished Paper Award at POPL 2026, introduces new compositional reasoning techniques for randomized concurrent programs. However, significant open questions remain in supporting full concurrent reasoning for randomized programs.</p>
   </div>
 </div>
 <div class="research-area">
   <div class="publication-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
   <div class="research-area-text">
-    <strong>Neuro-Symbolic Static Analysis</strong>
-    Scalable analysis techniques enhanced by generative AI to solve targeted reasoning problems while preserving the efficiency of traditional methods.
+    <strong>Scalable Neurosymbolic Static Analysis</strong>
+    Automated analysis tools for large codebases, enhanced by generative AI to solve targeted reasoning problems while preserving the efficiency of traditional methods. <button type="button" class="research-more" aria-expanded="false" onclick="toggleResearchMore(this)"><span>More</span> <i class="fa-solid fa-chevron-down"></i></button>
+    <p class="research-more-text" hidden>AI agents can now verify software, but doing so is very computationally intensive. <a href='https://theorem.dev/blog/verified-software-stack/' target='_blank' rel='noopener'>Theorem estimates</a> that proving memory safety for OpenSSL would cost about $220K using LLMs. Meanwhile, Meta's <a href='https://doi.org/10.1145/3527325' target='_blank' rel='noopener'>Pulse-X</a>, a symbolic analyzer, ran on OpenSSL in 16 minutes, at next to no cost. Although Pulse-X is only a bug finder, its symbolic reasoning engine is orders of magnitude more efficient than an LLM, which analyzes programs as text. I am working on tools based on <a href='https://doi.org/10.1145/3649821' target='_blank' rel='noopener'>Outcome Separation Logic</a> that close the gap between the efficiency of symbolic reasoning and the expressive power of AI.</p>
   </div>
 </div>
 <div class="research-area">
   <div class="publication-icon"><i class="fa-solid fa-robot"></i></div>
   <div class="research-area-text">
-    <strong>Infrastructure for AI-Based Program Verification</strong>
-    Trusted formal libraries and verification frameworks that enable AI systems to reason about programs with mathematical rigor.
+    <strong>Auditable Specifications for AI-Generated Software</strong>
+    Specifications that people can read and trust, even for large artifacts that span multiple programming languages and effects. <button type="button" class="research-more" aria-expanded="false" onclick="toggleResearchMore(this)"><span>More</span> <i class="fa-solid fa-chevron-down"></i></button>
+    <p class="research-more-text" hidden>AI-generated software artifacts are quickly becoming too large for engineers to understand. Verification can help, but is only useful if the specifications are auditable, meaning that a human can read them and clearly understand what was actually proved. Auditability is especially difficult in massive build artifacts, where interactions between different programming languages and effects make specifications more complicated. I am interested in interoperable logics and formal libraries that keep specifications understandable across these boundaries.</p>
   </div>
 </div>
 
