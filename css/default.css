@@ -123,66 +123,38 @@ body {
   max-width: 680px;
 }
 
-header {
+/* Menu bar */
+.site-nav {
   display: flex;
-  flex-flow: row wrap;
+  gap: 1.8em;
+  margin-top: 2em;
   border-bottom: 1px solid #ddd;
-  margin-top: 20px;
-  justify-content: center;
 }
 
-.name {
-  white-space: nowrap;
+.site-nav + section {
+  margin-top: 1.5em;
 }
 
-header h1 {
-  margin-top: 0;
+.site-nav + section .bio > h2:first-child {
+  margin-top: 0.5em;
 }
 
-header a {
-  color: #333333;
-}
-
-nav {
-  flex: 0 0;
-  height: 45px;
-  white-space: nowrap;
-  display: flex;
-  align-content: end;
-  align-items: end;
-  justify-content: space-between;
-}
-
-a.nav-item {
-  font-variant: small-caps;
-  flex: 1;
-  display: block;
-  margin:  17px 0 0 0;
-  padding: 0;
-  text-transform: uppercase;
+.site-nav a {
+  padding: 0.4em 0;
+  margin-bottom: -1px;
+  color: #444;
   font-weight: 500;
-  text-align: center;
-  border: none;
-  border-bottom: 2px solid #fff;
-  margin-right: 1em;
-  margin-left: 1em;
-}
-a.nav-item:last-child {
-  margin-right: 0;
-}
-a.nav-item:first-child {
-  margin-left: 0;
+  border-bottom: 3px solid transparent;
 }
 
-a.nav-item:hover, a.nav-item:focus {
-  transition-property: border-bottom;
-  border-bottom: 2px solid #000;
-  transition-duration: 0.2s;
-  background: none;
+.site-nav a:hover, .site-nav a:focus {
+  color: #2360a1;
+  border-bottom-color: transparent;
 }
 
-nav a.active {
-  color: #A6A6AF;
+.site-nav a[aria-current="page"] {
+  color: #222;
+  border-bottom-color: #ffcc33;
 }
 
 .container {
@@ -221,7 +193,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  /*font-family: "Staatliches";*/
   margin-top: 1em;
   margin-bottom: 0.1em;
   hyphens: none;
@@ -236,13 +207,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 36px; line-height: 1.25; letter-spacing: -1px; }
 h2 { font-size: 24px; line-height: 1.35; margin-top: 1.6em; font-weight: 600; color: #222; }
 
+/* Small yellow dot after section headings. It is a text character (a filled
+   square) rather than a box so it never wraps onto a line of its own. */
 h2::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 3px;
-  margin-top: 4px;
-  background: #ffcc33;
+  content: "\25A0";
+  margin-left: 0.1em;
+  font-size: 0.4em;
+  color: #ffcc33;
 }
 h3 { font-size: 20px; line-height: 1.5; }
 h4 { font-size: 15px; line-height: 1.6;  letter-spacing: 0px; }
@@ -342,62 +313,214 @@ dt {
 }
 
 /** Standalone pages */
-.back-link {
-  font-size: 0.92em;
-}
-
 h2.page-title {
   margin-top: 0.5em;
 }
 
-/** Research directions */
-.research-area {
-  display: flex;
-  gap: 1em;
-  margin: 1em 0;
+.back-link {
+  font-size: 0.92em;
 }
 
-.research-area-text {
+/* Bulleted lists in page content: small yellow squares, like the heading dots */
+.bio ul {
+  list-style: none;
+  padding-left: 1.3em;
+}
+
+.bio ul li {
+  position: relative;
+  margin-bottom: 0.4em;
+}
+
+.bio ul li::before {
+  content: "";
+  position: absolute;
+  left: -1.05em;
+  top: 0.6em;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 1px;
+  background: #ffcc33;
+}
+
+/** Gears animation on the Research page */
+.gears-box {
+  margin: 1.5em 0 0;
+  padding: 10px;
+  border-radius: 14px;
+  background: #eef3f9;
+  border: 1px solid #dde3ea;
+}
+
+.gears-caption {
+  padding: 4px 6px 2px;
+  color: #555;
+  font-size: 0.88em;
+}
+
+.gears-caption p {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.gears-box svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/** Research directions */
+.research-direction {
+  margin-top: 2.2em;
+}
+
+.research-direction h2 {
+  margin: 0 0 0.5em;
+}
+
+.research-direction-lead {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  padding: 12px 18px 12px 12px;
+  background: #f4f7fb;
+  border: 1px solid #dde3ea;
+  border-radius: 14px;
+}
+
+.research-direction-lead .publication-icon {
+  margin-top: 0;
+  background: #fff;
+}
+
+.research-tagline {
+  margin: 0;
+  font-weight: 500;
+  color: #3a4a5e;
+}
+
+.research-direction-body {
+  margin-top: 0.2em;
+}
+
+.research-direction-body.has-image {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 2em;
+  align-items: center;
+}
+
+.research-figure {
+  margin: 0;
+}
+
+.research-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .research-direction-body.has-image {
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+  }
+
+  .research-figure {
+    max-width: 260px;
+    margin: 0 auto 1em;
+  }
+}
+
+/** News */
+ul.news {
+  list-style: none;
+  padding: 0;
+  margin: 0.8em 0 0;
+}
+
+ul.news li {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.news-date {
+  font-weight: 600;
+  color: #444;
+}
+
+.news-date::after {
+  content: "\25CF";
+  margin: 0 0.4em;
+  font-size: 0.95em;
+  vertical-align: 0.02em;
+  color: #ffcc33;
+}
+
+.news-text {
   flex: 1;
   min-width: 0;
 }
 
-.research-area-text strong {
-  display: block;
-  font-weight: 600;
-  color: #222;
-}
-
-.research-more {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  color: #2360a1;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.research-more:hover span, .research-more:focus-visible span {
-  text-decoration: underline;
-}
-
-.research-more i {
-  font-size: 0.7em;
-  transition: transform 0.2s;
-}
-
-.research-more[aria-expanded="true"] i {
-  transform: rotate(180deg);
-}
-
-.research-more-text {
-  margin: 0.6em 0 0;
-  padding-left: 0.9em;
-  border-left: 3px solid #2360a1;
-}
-
 /** Publication styling */
+h3.publication-year {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  margin: 1.6em 0 0.6em;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #2360a1;
+}
+
+h3.publication-year::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dde3ea;
+}
+
+.year-nav + h3.publication-year {
+  margin-top: 1em;
+}
+
+h3.publication-year {
+  scroll-margin-top: 1em;
+}
+
+.year-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.4em;
+}
+
+.year-nav a {
+  padding: 0.15em 0.75em;
+  border: 1px solid #dde3ea;
+  border-radius: 999px;
+  background: #f4f7fb;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.year-nav a:hover {
+  background: #eef3f9;
+  border-color: #2360a1;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 #publications {
   margin-bottom: 0.6em;
 }
@@ -635,15 +758,6 @@ div.footnotes {
   display: inline;
 }
 
-@media screen and (min-width: 585px) {
-  .name {
-    flex: 1 0;
-  }
-  a.nav-item:first-child {
-    margin-left: 2em;
-  }
-}
-
 @media screen and (min-width: 800px) {
   .blurb > .date {
     text-align: right;
@@ -729,3 +843,16 @@ div.footnotes {
       visibility: visible;
       opacity: 1;
     }
+
+.icon-glyph {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .research-direction-lead {
+    align-items: flex-start;
+  }
+}

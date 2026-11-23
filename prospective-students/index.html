@@ -11,13 +11,7 @@
   <link rel="stylesheet" href=https://zilberstein.github.io/css/default.css>
   <script src="https://kit.fontawesome.com/7511b28b59.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://zilberstein.github.io/post/atom.xml">
-  
   <meta name="google-site-verification" content="hCQAH2tlNe6A8dAbaQHBLKYC-pCsWMBrkjmxg3D_RtU" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
   <script>
     function copyBibtex(button) {
@@ -39,13 +33,6 @@
       }).catch(showFallback);
     }
 
-    function toggleResearchMore(button) {
-      const text = button.parentElement.querySelector('.research-more-text');
-      text.hidden = !text.hidden;
-      button.setAttribute('aria-expanded', !text.hidden);
-      button.querySelector('span').textContent = text.hidden ? 'More' : 'Less';
-    }
-
     function showToast(message) {
       const toast = document.getElementById('toast');
       toast.textContent = message;
@@ -58,15 +45,6 @@
 </head>
 
 <body>
-<!--  <header>
-    <h1 class="name"><a class="unstyled-link" href="https://zilberstein.github.io">Noam Zilberstein</a></h1>
-    <nav>
-      <a class="unstyled-link nav-item" href="https://zilberstein.github.io/outcome">Outcome Logic</a>
-      <a class="unstyled-link nav-item" href="#publications">Publications</a>
-      <a class="unstyled-link nav-item" href="/#posts">Posts</a>
-      <a class="unstyled-link nav-item" href="https://zilberstein.github.io/files/cv.pdf">CV</a>
-    </nav>-->
-  </header>
   <section class="section">
     <div class="container">
       
@@ -90,9 +68,11 @@
 <a class="unstyled-link"
    itemprop="sameAs"
    href="mailto:nzilbers@stevens.edu"
+   aria-label="Email"
+   title="Email"
    target="_blank"
    rel="noopener">
-  <i class="fa fa-envelope contact-link-item big-icon"></i>
+  <i class="fa fa-envelope contact-link-item big-icon" aria-hidden="true"></i>
 </a>
 
       
@@ -100,27 +80,33 @@
 <a class="unstyled-link"
    itemprop="sameAs"
    href="//github.com/zilberstein"
+   aria-label="GitHub"
+   title="GitHub"
    target="_blank"
    rel="noopener">
-  <i class="fab fa-github contact-link-item big-icon"></i>
+  <i class="fab fa-github contact-link-item big-icon" aria-hidden="true"></i>
 </a>
 
       
 <a class="unstyled-link"
    itemprop="sameAs"
    href="//scholar.google.com/citations?user=rrC4LisAAAAJ"
+   aria-label="Google Scholar"
+   title="Google Scholar"
    target="_blank"
    rel="noopener">
-  <i class="ai ai-google-scholar contact-link-item big-icon"></i>
+  <i class="ai ai-google-scholar contact-link-item big-icon" aria-hidden="true"></i>
 </a>
 
       
 <a class="unstyled-link"
    itemprop="sameAs"
    href="//dblp.org/pid/271/4829.html"
+   aria-label="DBLP"
+   title="DBLP"
    target="_blank"
    rel="noopener">
-  <i class="ai ai-dblp contact-link-item big-icon"></i>
+  <i class="ai ai-dblp contact-link-item big-icon" aria-hidden="true"></i>
 </a>
 
       
@@ -128,37 +114,54 @@
 <a class="unstyled-link"
    itemprop="sameAs"
    href="https://zilberstein.github.io/files/cv.pdf"
+   aria-label="CV"
+   title="CV"
    target="_blank"
    rel="noopener">
-  <i class="ai ai-cv contact-link-item big-icon"></i>
+  <i class="ai ai-cv contact-link-item big-icon" aria-hidden="true"></i>
 </a>
 
     </div>
   </div>
 
-  <div class="huge-slash"> / </div>
+  <div class="huge-slash" aria-hidden="true"> / </div>
 
   <div class="portrait" style="background-image: url('https://zilberstein.github.io/img/headshot.jpg');"></div>
 
 </div>
 
+<nav class="site-nav" aria-label="Main">
+  
+  <a href="/">Home</a>
+  
+  <a href="/research/">Research</a>
+  
+  <a href="/publications/">Publications</a>
+  
+</nav>
+
 
 <section>
-<a class="back-link" href="https://zilberstein.github.io"><i class="fa-solid fa-arrow-left"></i> Home</a>
+
+<a class="back-link" href="/"><i class="fa-solid fa-arrow-left"></i> Home</a>
+
 <h2 class="page-title">Prospective PhD Students</h2>
 <div class="bio">
+
 <p>I am recruiting PhD students to begin in Fall 2027. Potential projects include:</p>
 <ul>
 <li><strong>Scalable Neurosymbolic Static Analysis:</strong> Augmenting efficient static analysis techniques with neural oracles to extend their expressivity without sacrificing performance.</li>
 <li><strong>Verification of Randomized Distributed Algorithms:</strong> Proving the correctness of critical algorithms, including blockchain consensus and secure multiparty computation schemes.</li>
 <li><strong>Interoperable Logics:</strong> Enabling specifications to be shared across large proof artifacts that span multi-million-line codebases.</li>
 </ul>
+<p>For more information, see my <a href="/research/">research page</a>.</p>
 <h3 id="who-should-apply">Who should apply</h3>
 <p>Strong candidates will have a background in programming languages, for example coursework or research experience in programming language theory, type systems, program logics, formal verification, and/or proof assistants such as Rocq or Lean.</p>
 <p>Some of my work intersects with AI, but it is grounded in the formal foundations that make verification trustworthy and efficient. I am not interested in projects that simply experiment with LLMs to verify programs in a freeform way. If that is your main interest, I am unlikely to be the right advisor for you.</p>
 <p>If you meet these criteria, please <a href="mailto:nzilbers@stevens.edu">reach out to me</a>!</p>
 <h3 id="how-to-apply">How to apply</h3>
 <p>See the <a rel="noopener nofollow noreferrer external" target="_blank" href="https://www.stevens.edu/program/computer-science-doctoral-program">Stevens Computer Science PhD program</a> page for details on how to apply.</p>
+
 
 </div>
 </section>

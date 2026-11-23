@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Noam Zilberstein">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research | Noam Zilberstein</title>
+
+  <link rel="stylesheet" href=https://zilberstein.github.io/css/normalize.css>
+  <link rel="stylesheet" href=https://zilberstein.github.io/css/default.css>
+  <script src="https://kit.fontawesome.com/7511b28b59.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <meta name="google-site-verification" content="hCQAH2tlNe6A8dAbaQHBLKYC-pCsWMBrkjmxg3D_RtU" />
+
+  <script>
+    function copyBibtex(button) {
+      const fallback = button.closest('.publication').querySelector('.bibtex-fallback');
+      const text = fallback.textContent;
+
+      const showFallback = () => {
+        fallback.hidden = false;
+        window.getSelection().selectAllChildren(fallback);
+        showToast('Couldn\'t copy automatically, so the citation is shown below.');
+      };
+
+      if (!navigator.clipboard) {
+        showFallback();
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Citation copied to clipboard!');
+      }).catch(showFallback);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<!-- Contact -->
+<div id="contact">
+
+  <div class="portrait-title">
+
+    <h1>Noam Zilberstein</h1>
+    <h3>Assistant Professor</h3>
+
+    <h3 class="affiliation">
+      <a href="https://www.stevens.edu/school-engineering-science/departments/computer-science" target="_blank" itemprop="url" rel="noopener">
+	<span itemprop="name">The Stevens Institute of Technology</span><br />
+	School of Computing
+      </a>
+    </h3>
+
+    <div class="contact-links">
+      
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="mailto:nzilbers@stevens.edu"
+   aria-label="Email"
+   title="Email"
+   target="_blank"
+   rel="noopener">
+  <i class="fa fa-envelope contact-link-item big-icon" aria-hidden="true"></i>
+</a>
+
+      
+      
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="//github.com/zilberstein"
+   aria-label="GitHub"
+   title="GitHub"
+   target="_blank"
+   rel="noopener">
+  <i class="fab fa-github contact-link-item big-icon" aria-hidden="true"></i>
+</a>
+
+      
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="//scholar.google.com/citations?user=rrC4LisAAAAJ"
+   aria-label="Google Scholar"
+   title="Google Scholar"
+   target="_blank"
+   rel="noopener">
+  <i class="ai ai-google-scholar contact-link-item big-icon" aria-hidden="true"></i>
+</a>
+
+      
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="//dblp.org/pid/271/4829.html"
+   aria-label="DBLP"
+   title="DBLP"
+   target="_blank"
+   rel="noopener">
+  <i class="ai ai-dblp contact-link-item big-icon" aria-hidden="true"></i>
+</a>
+
+      
+      
+<a class="unstyled-link"
+   itemprop="sameAs"
+   href="https://zilberstein.github.io/files/cv.pdf"
+   aria-label="CV"
+   title="CV"
+   target="_blank"
+   rel="noopener">
+  <i class="ai ai-cv contact-link-item big-icon" aria-hidden="true"></i>
+</a>
+
+    </div>
+  </div>
+
+  <div class="huge-slash" aria-hidden="true"> / </div>
+
+  <div class="portrait" style="background-image: url('https://zilberstein.github.io/img/headshot.jpg');"></div>
+
+</div>
+
+<nav class="site-nav" aria-label="Main">
+  
+  <a href="/">Home</a>
+  
+  <a href="/research/" aria-current="page">Research</a>
+  
+  <a href="/publications/">Publications</a>
+  
+</nav>
+
+
+<section>
+
+<h2 class="page-title">Research</h2>
+<div class="bio">
+
+<p>The overarching goal of my research is to build efficient, industrial-grade formal verification tools that improve the security and reliability of real-world software. LLMs are increasingly capable of finding vulnerabilities in critical software, prompting a broad appetite to <em>“verify all software.”</em> LLMs also make large-scale formal proof possible, but at a computational cost that is out of reach for most academic researchers.</p>
+<p>My research develops <em><strong>neurosymbolic</strong></em> program analysis techniques that seamlessly incorporate neural components into mechanized logics, getting the best of both worlds in expressiveness and efficiency. Regardless of scale, some program properties are not covered by any existing formal method, so a second stream of my research extends verification into new domains.</p>
+<figure class="gears-box">
+<svg id="art" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The lavender nodes of a neural network that grow and morph into meshing brass and copper gears, over a background of proof script">
+<defs><radialGradient id="vignette" cx="50%" cy="50%" r="72%"><stop offset="55%" stop-color="#f4f7fb" stop-opacity="0"/><stop offset="100%" stop-color="#dce4ee" stop-opacity="0.8"/></radialGradient></defs>
+<rect width="1600" height="900" fill="#f4f7fb"/>
+<g id="script" font-family="JetBrains Mono, ui-monospace, Menlo, monospace" font-size="17" fill="rgba(35,96,161,0.12)" xml:space="preserve"></g>
+<rect width="1600" height="900" fill="url(#vignette)"/>
+<g id="links" stroke-linecap="round"></g>
+<g id="free"></g>
+<g id="gears"></g>
+</svg>
+<figcaption class="gears-caption">
+<p>Neurosymbolic methods form a spectrum, and real-world systems may lean more neural or more symbolic depending on the application.</p>
+</figcaption>
+</figure>
+<script src="/js/gears.js" defer></script>
+<article class="research-direction">
+<h2>Next-Generation Neurosymbolic Program Verification</h2>
+<div class="research-direction-lead">
+<div class="publication-icon"><i class="fa-solid fa-brain"></i></div>
+<p class="research-tagline">Verification tools that seamlessly combine the machine-checked guarantees of symbolic reasoning with the flexibility of neural networks.</p>
+</div>
+<div class="research-direction-body">
+<div class="research-direction-text">
+<p>Formal methods have traditionally revolved around symbolic analysis, which combines mechanized logical steps with heuristics to derive mathematically guaranteed specifications about programs. While symbolic reasoning is reliable and efficient, the reliance on heuristics limits its applicability. I am working to build a next-generation program analyzer, based on <a rel="noopener nofollow noreferrer external" target="_blank" href="https://doi.org/10.1145/3649821">Outcome Separation Logic</a>, which replaces heuristics with neural oracles to boost the expressiveness of existing automated techniques. Each oracle suggestion is machine checked and therefore cannot compromise soundness. By selectively placing heuristics and oracles at different analysis points, the system can seamlessly slide back and forth on the spectrum from neural to symbolic.</p>
+</div>
+</div>
+</article>
+<article class="research-direction">
+<h2>Program Verification on the Cheap</h2>
+<div class="research-direction-lead">
+<div class="publication-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+<p class="research-tagline">Ultra-high-performance verification techniques that scale to codebases with hundreds of millions of lines.</p>
+</div>
+<div class="research-direction-body">
+<div class="research-direction-text">
+<p>Although it has been exciting to see automated verification deployed at large scale by frontier AI labs such as <a rel="noopener nofollow noreferrer external" target="_blank" href="https://www.anthropic.com/research/formal-verification">Anthropic</a> and <a rel="noopener nofollow noreferrer external" target="_blank" href="https://deepmind.google/blog/introducing-alphaproof-code/">Google DeepMind</a>, the cost of such efforts makes them out of reach, even for well-funded academic groups. For example, Theorem estimates that their approach to proving memory safety for OpenSSL <a rel="noopener nofollow noreferrer external" target="_blank" href="https://theorem.dev/blog/verified-software-stack/">would cost about $220,000</a>. By sliding more towards the symbolic side of the neurosymbolic spectrum, I plan to develop techniques that are many orders of magnitude more efficient, while still retaining enough expressive power for real-world use cases. My goal is for moderate workloads (verifying memory safety of several thousand lines of C code) to be entirely runnable using open-weight models on a consumer laptop like a MacBook Pro. Larger workloads will run on GPU clusters or use frontier model APIs, while still being cost effective.</p>
+</div>
+</div>
+</article>
+<article class="research-direction">
+<h2>Mathematical Foundations of Program Logics</h2>
+<div class="research-direction-lead">
+<div class="publication-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+<p class="research-tagline">Expanding the boundaries of what can be verified, including programs with challenging combinations of effects such as concurrency and randomization.</p>
+</div>
+<div class="research-direction-body">
+<div class="research-direction-text">
+<p>Verification relies on expressive and well-understood logical frameworks. A machine-checked proof is worthless if the underlying specification is subtly wrong. So, the semantic models and logical assertions that back formal verification must be thoroughly studied by humans, even more so than the programs that get verified with respect to them.
+Many programs combine computational effects in ways that existing techniques cannot yet analyze. Using <a rel="noopener nofollow noreferrer external" target="_blank" href="https://doi.org/10.1145/3743131">Outcome Logic</a> as a foundation, I am broadly interested in developing logics for new combinations of effects, and in finding ways to generalize them. For example, <a rel="noopener nofollow noreferrer external" target="_blank" href="https://doi.org/10.1145/3776651">Probabilistic Concurrent Outcome Logic</a>, which received a Distinguished Paper Award at POPL 2026, introduces new compositional reasoning techniques for randomized concurrent programs.</p>
+</div>
+</div>
+</article>
+
+
+</div>
+</section>
+
+    </div>
+  </section>
+
+<footer>
+  &copy;&nbsp;2026 Noam Zilberstein &middot; Built using <a href="https://www.getzola.org/">Zola</a>
+</footer>
+</body>
+
+</html>
